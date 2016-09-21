@@ -4,4 +4,6 @@ From the feedback I have got, it seems that they are useful. So I have decided t
 
 More resources are in the official site following [this link](http://www.psychopy.org/resources/resources.html).
 
+___
+
 You can can do whatever you want with the scripts. They are [unlicensed](LICENSE).
