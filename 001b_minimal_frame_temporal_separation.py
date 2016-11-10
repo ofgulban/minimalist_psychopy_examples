@@ -1,4 +1,4 @@
-"""Minimal frame for a visual experiment."""
+"""Minimal frame for two stimuli separated in time."""
 
 from psychopy import visual, monitors, core, event
 
@@ -21,23 +21,21 @@ mywin = visual.Window(size=(800, 600), screen=0, winType='pyglet',
 # %%
 """ Stimulus """
 
+# Squares
 stim_1 = visual.GratingStim(win=mywin, tex=None, units='deg',
-                            size=(2, 2), pos=(-1, 0),
-                            color='green'
+                            size=(2, 2),
+                            color='green',
                             )
 
-stim_2 = visual.GratingStim(win=mywin, tex=None, units='deg',
-                            size=(1, 1), pos=(2, 0),
-                            color='blue'
-                            )
-
-text = visual.TextStim(win=mywin, text='Hello', color='red', height=0.3)
+# Text
+text = visual.TextStim(win=mywin, color='black', height=0.4)
 
 # %%
 """ Time """
 
 # parameters
-total_time = 5.
+total_time = 10.
+block_time = 6.
 
 # give the system time to settle
 core.wait(0.5)
@@ -51,11 +49,21 @@ clock.reset()
 
 while clock.getTime() < total_time:
 
+    t = clock.getTime()
+
+    # determine block
+    if t < block_time:
+        stim_1.color = 'red'
+        stim_1.size = (1, 1)
+
+    elif t >= block_time:
+        stim_1.color = 'green'
+        stim_1.size = (2, 2)
+
     stim_1.draw()
-    stim_2.draw()
 
     # set test text
-    text.text = clock.getTime()
+    text.text = t
     text.draw()
 
     mywin.flip()
