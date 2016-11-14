@@ -32,8 +32,8 @@ text = visual.TextStim(win=mywin, color='black', height=0.4)
 """ Block Identifiers and Durations """
 
 # try changing these numbers ans see what happens
-block_ide = np.array([1, 2, 3, 1, 2])
-block_dur = np.array([4, 2, 5, 1, 3])
+block_ide = np.array([1, 2, 3, 2, 3, 1])
+block_dur = np.array([2, 3, 2, 1, 4, 4])
 
 # %%
 """ Time """
