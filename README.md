@@ -6,4 +6,4 @@ More resources are in the official site following [this link](http://www.psychop
 
 ___
 
-You can can do whatever you want with the scripts. They are [unlicensed](LICENSE).
+You can can do whatever you want with these scripts. They are [unlicensed](LICENSE).
