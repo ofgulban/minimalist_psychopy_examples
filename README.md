@@ -2,7 +2,7 @@ These are some very simple [Psychopy](http://www.psychopy.org/) scripts that I h
 
 It seems that they are useful so I have decided to put them here for easy access.
 
-More resources are in the official site following [this link](http://www.psychopy.org/resources/resources.html).
+More resources are available in the official site following [this link](http://www.psychopy.org/resources/resources.html). I would also recommend to check the demos in psychopy [coder view](http://www.psychopy.org/coder/coder.html).
 
 ___
 
