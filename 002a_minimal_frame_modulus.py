@@ -1,4 +1,4 @@
-""" Minimal frame with modulus usage."""
+"""Minimal frame with modulus usage."""
 
 from psychopy import visual, monitors, core, event
 
@@ -9,7 +9,7 @@ from psychopy import visual, monitors, core, event
 moni = monitors.Monitor('testMonitor', width=8.2, distance=60)  # cm,
 
 # set screen (make 'fullscr = True' for fullscreen)
-mywin = visual.Window(size=(1024, 768), screen=0, winType='pyglet',
+mywin = visual.Window(size=(800, 600), screen=0, winType='pyglet',
                       allowGUI=True,
                       fullscr=False,
                       monitor=moni,
