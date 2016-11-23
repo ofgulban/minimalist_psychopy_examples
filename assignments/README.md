@@ -1,3 +1,5 @@
+These are some things that people can try to implement to hone their skills.
+
 ## Session 1
 
 ### Practice for 000_minimal_frame.py script:
