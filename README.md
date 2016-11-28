@@ -16,6 +16,11 @@ If you have questions about Psychopy's timing, please read the following resourc
 - [A blog post about Psychopy's timing.](https://computingforpsychologists.wordpress.com/2014/02/13/stimulus-timing-accuracy-in-psychopy-an-update-and-an-example-of-open-science-in-action/)
 - [Garaizar, P., & Vadillo, M. A. (2014). Accuracy and precision of visual stimulus timing in PsychoPy: no timing errors in standard usage. PloS One, 9(11), e112033.](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0112033)
 
+### Questions
+
+If you have questions about psychopy, I would recommend you to use [this address](http://discourse.psychopy.org/).  
+If you have a question specific to this repository please use [github issues](https://github.com/ofgulban/minimalist_psychopy_examples/issues)
+
 ---
 
 ### License
