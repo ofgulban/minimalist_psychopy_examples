@@ -1,33 +1,34 @@
 """Basic text read, organize by column, create pickle."""
 
-import csv, pickle
+import csv
+import pickle
 
-csvName = 'Test_01.csv'
-pickleName = 'Test_01.pickle'
+csv_name = 'Test_01.csv'
+pickle_name = 'Test_01.pickle'
 
 # create empty arrays to append elements later
-stimType =[]  
-stimDur  =[]
+state_ide = []
+state_dur = []
 
 # read & display csv
-file = open(csvName)
+file = open(csv_name)
 data = csv.DictReader(file)
 
 # instead of simple prints, append each relevant element to a list, then print
 for row in data:
     # change data type from string to integers (optional but will be useful)
-    stimType.append(int(row['stimulus']))
-    stimDur.append(int(row['duration']))
+    state_ide.append(int(row['stimulus']))
+    state_dur.append(int(row['duration']))
 
 file.close()
 
-print 'Stimulus types    : ', stimType
-print 'Stimulus durations: ', stimDur
+print 'Stimulus types    : ', state_ide
+print 'Stimulus durations: ', state_dur
 
 # I prefer dictionary data structures for pickles
-dictionary = {'Stimulus':stimType, 'Duration':stimDur}
+dictionary = {'Stimulus': state_ide, 'Duration': state_dur}
 print dictionary
 
 # Save the pickle
-pickle.dump(dictionary, open(pickleName, 'wb'))
-print 'Saved as: ' + pickleName
+pickle.dump(dictionary, open(pickle_name, 'wb'))
+print 'Saved as: ' + pickle_name

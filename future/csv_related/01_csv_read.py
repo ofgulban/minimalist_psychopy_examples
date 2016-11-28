@@ -2,10 +2,10 @@
 
 import csv
 
-csvName = 'Test_01.csv'
+csv_name = 'Test_01.csv'
 
 # read & display csv
-file = open(csvName)
+file = open(csv_name)
 data = csv.DictReader(file)
 
 for row in data:
