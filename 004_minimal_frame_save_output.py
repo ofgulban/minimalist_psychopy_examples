@@ -109,7 +109,9 @@ dictionary = {'Stimulus':block_ide, 'Duration':block_dur}
 print dictionary
 
 # Save the pickle
-pickle.dump(dictionary, open(pickleName, 'wb'))
+out = open(pickleName, 'wb')
+pickle.dump(dictionary, out)
+out.close()
 print '-----\n Saved as: ' + pickleName + '\n-----'
 
 mywin.close()

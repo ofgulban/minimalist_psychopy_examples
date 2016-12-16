@@ -30,5 +30,7 @@ dictionary = {'Stimulus': state_ide, 'Duration': state_dur}
 print dictionary
 
 # Save the pickle
-pickle.dump(dictionary, open(pickle_name, 'wb'))
+out = open(pickle_name, 'wb')
+pickle.dump(dictionary, out)
+out.close()
 print 'Saved as: ' + pickle_name
