@@ -19,7 +19,7 @@ If you have questions about Psychopy's timing, please read the following resourc
 ### Questions
 
 If you have questions about psychopy, I would recommend you to use [this address](http://discourse.psychopy.org/).  
-If you have a question specific to this repository please use [github issues](https://github.com/ofgulban/minimalist_psychopy_examples/issues)
+If you have a question specific to this repository please use [github issues](https://github.com/ofgulban/minimalist_psychopy_examples/issues).
 
 ---
 
