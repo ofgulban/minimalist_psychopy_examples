@@ -2,7 +2,7 @@
 
 These are some very simple [Psychopy](http://www.psychopy.org/) scripts that I have written for demonstrating some basics to people who did not have much programming experience. It seems that they are useful so I have decided to put them here for easy access.
 
-The scripts are ordered in a way that they start from very simple and get more and more feature rich.
+The scripts are ordered in a way that they start from very simple and evolves gradually.
 
 This repository in an ongoing project so expect some changes to happen in time.
 
