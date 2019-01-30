@@ -40,7 +40,7 @@ block_dur = np.array([4, 2, 5, 1, 3])
 
 # parameters
 total_time = np.sum(block_dur)
-print 'Total Time: %i' % total_time  # '%i' means integer here
+print('Total Time: {}'.format(total_time))
 
 # give the system time to settle
 core.wait(0.5)
@@ -89,10 +89,7 @@ while trig < total_time:  # <-----
                 mywin.close()
                 core.quit()
     i = i + 1
-
-    # '%i' inside the string means "integer" and it is different than the
-    # variable 'i' that we iterate after each block
-    print 'Block counter: %i' % i
+    print('Block counter: {}'.format(i))
 
 mywin.close()
 core.quit()

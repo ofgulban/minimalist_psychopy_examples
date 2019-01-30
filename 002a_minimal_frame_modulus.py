@@ -16,8 +16,7 @@ mywin = visual.Window(size=(800, 600), screen=0, winType='pyglet',
                       color='grey',
                       colorSpace='rgb',
                       units='cm',
-                      blendMode='avg',
-                      )
+                      blendMode='avg')
 
 # %%
 """ Stimulus """

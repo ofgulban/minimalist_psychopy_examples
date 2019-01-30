@@ -15,21 +15,18 @@ mywin = visual.Window(size=(800, 600), screen=0, winType='pyglet',
                       monitor=moni,
                       color='grey',
                       colorSpace='rgb',
-                      units='cm'
-                      )
+                      units='cm')
 
 # %%
 """ Stimulus """
 
 stim_1 = visual.GratingStim(win=mywin, tex=None, units='deg',
                             size=(2, 2), pos=(-1, 0),
-                            color='green'
-                            )
+                            color='green')
 
 stim_2 = visual.GratingStim(win=mywin, tex=None, units='deg',
                             size=(1, 1), pos=(2, 0),
-                            color='blue'
-                            )
+                            color='blue')
 
 text = visual.TextStim(win=mywin, text='Hello', color='red', height=0.3)
 
