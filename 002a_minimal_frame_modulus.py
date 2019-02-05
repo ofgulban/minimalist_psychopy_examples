@@ -10,12 +10,8 @@ moni = monitors.Monitor('testMonitor', width=8.2, distance=60)  # cm,
 
 # set screen (make 'fullscr = True' for fullscreen)
 mywin = visual.Window(size=(800, 600), screen=0, winType='pyglet',
-                      allowGUI=True,
-                      fullscr=False,
-                      monitor=moni,
-                      color='grey',
-                      colorSpace='rgb',
-                      units='cm',
+                      allowGUI=True, fullscr=False, monitor=moni,
+                      color='grey', colorSpace='rgb', units='cm',
                       blendMode='avg')
 
 # %%
@@ -32,7 +28,7 @@ text = visual.TextStim(win=mywin, color='black', height=0.4)
 # parameters
 total_time = 12  # seconds
 block_time = 2  # seconds
-loop_dur = block_time * 3  # because we have 3 different stimuli)
+loop_dur = block_time * 3  # because we have 3 different stimuli
 
 # give the system time to settle
 core.wait(0.5)
@@ -48,17 +44,17 @@ i = 0  # used to count how many blocks are completed
 
 while clock.getTime() < total_time:
 
-    t = clock.getTime()
+    t = clock.getTime() % loop_dur
 
-    if t % loop_dur < block_time:
+    if t < block_time:
         stim.setColor('red')
         stim.setSize((1, 1))
 
-    elif t % loop_dur >= block_time and t % loop_dur < 2 * block_time:
+    elif t >= block_time and t < 2 * block_time:
         stim.setColor('green')
         stim.setSize((2, 2))
 
-    elif t % loop_dur >= 2 * block_time:
+    elif t >= 2 * block_time:
         stim.setColor('blue')
         stim.setSize((3, 3))
 
@@ -76,11 +72,11 @@ while clock.getTime() < total_time:
 
         # handle key presses each frame
         for keys in event.getKeys(timeStamped=True):
-            if keys[0]in ['escape', 'q']:
+            if keys[0] in ['escape', 'q']:
                 mywin.close()
                 core.quit()
 
-    i = i + 1
+    i += 1
 
 mywin.close()
 core.quit()

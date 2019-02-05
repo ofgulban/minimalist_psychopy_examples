@@ -11,13 +11,8 @@ moni = monitors.Monitor('testMonitor', width=8.2, distance=60)  # cm,
 
 # set screen (make 'fullscr = True' for fullscreen)
 mywin = visual.Window(size=(800, 600), screen=0, winType='pyglet',
-                      allowGUI=True,
-                      fullscr=False,
-                      monitor=moni,
-                      color='grey',
-                      colorSpace='rgb',
-                      units='cm',
-                      )
+                      allowGUI=True, fullscr=False, monitor=moni,
+                      color='grey', colorSpace='rgb', units='cm')
 
 # %%
 """ Stimulus """
@@ -69,26 +64,26 @@ while trig < total_time:  # <-----
         stim.color = 'blue'
         stim.size = (3, 3)
 
-    while trig < np.sum(block_dur[0:i + 1]):  # <-----
+    while trig < np.sum(block_dur[0:i+1]):  # <-----
 
         # condition
         stim.draw()
 
         # set test text
-        text.text = 'Trigger: ' + str(trig)  # <-----
+        text.text = 'Trigger: {}'.format(trig)  # <-----
         text.draw()
 
         mywin.flip()
 
         # handle key presses each frame
         for keys in event.getKeys(timeStamped=True):
-            if keys[0]in ['5']:  # <-----
+            if keys[0] in ['5']:  # <-----
                 trig = trig + 1  # <-----
 
-            if keys[0]in ['escape', 'q']:
+            if keys[0] in ['escape', 'q']:
                 mywin.close()
                 core.quit()
-    i = i + 1
+    i += 1
     print('Block counter: {}'.format(i))
 
 mywin.close()

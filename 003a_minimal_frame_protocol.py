@@ -11,12 +11,8 @@ moni = monitors.Monitor('testMonitor', width=8.2, distance=60)  # in cm
 
 # set screen (make 'fullscr = True' for fullscreen)
 mywin = visual.Window(size=(800, 600), screen=0, winType='pyglet',
-                      allowGUI=True,
-                      fullscr=False,
-                      monitor=moni,
-                      color='grey',
-                      colorSpace='rgb',
-                      units='cm')
+                      allowGUI=True, fullscr=False, monitor=moni,
+                      color='grey', colorSpace='rgb', units='cm')
 
 # %%
 """ Stimulus """
@@ -39,7 +35,7 @@ block_dur = np.array([2, 3, 2, 1, 4, 4])
 
 # parameters
 total_time = np.sum(block_dur)
-print('Total Time: {}'.format(total_time)
+print('Total Time: {}'.format(total_time))
 
 # give the system time to settle
 core.wait(0.5)
@@ -80,10 +76,10 @@ while clock.getTime() < total_time:
 
         # handle key presses each frame
         for keys in event.getKeys(timeStamped=True):
-            if keys[0]in ['escape', 'q']:
+            if keys[0] in ['escape', 'q']:
                 mywin.close()
                 core.quit()
-    i = i + 1
+    i += 1
     print('Block counter: {}'.format(i))
 
 mywin.close()

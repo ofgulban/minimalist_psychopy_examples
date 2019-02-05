@@ -10,24 +10,18 @@ moni = monitors.Monitor('testMonitor', width=8.2, distance=60)  # in cm
 
 # set screen (make 'fullscr = True' for fullscreen)
 mywin = visual.Window(size=(800, 600), screen=0, winType='pyglet',
-                      allowGUI=True,
-                      fullscr=False,
-                      monitor=moni,
-                      color='grey',
-                      colorSpace='rgb',
-                      units='cm')
+                      allowGUI=True, fullscr=False, monitor=moni,
+                      color='grey', colorSpace='rgb', units='cm')
 
 # %%
 """ Stimulus """
 
 # Squares
 stim_1 = visual.GratingStim(win=mywin, tex=None, units='deg',
-                            size=(1, 1),
-                            color='red')
+                            size=(1, 1), color='red')
 
 stim_2 = visual.GratingStim(win=mywin, tex=None, units='deg',
-                            size=(2, 2),
-                            color='green')
+                            size=(2, 2), color='green')
 
 # Text
 text = visual.TextStim(win=mywin, color='black', height=0.4)
@@ -67,8 +61,8 @@ while clock.getTime() < total_time:
     mywin.flip()
 
     # handle key presses each frame
-    for keys in event.getKeys(timeStamped=True):
-        if keys[0]in ['escape', 'q']:
+    for keys in event.getKeys():
+        if keys[0] in ['escape', 'q']:
             mywin.close()
             core.quit()
 

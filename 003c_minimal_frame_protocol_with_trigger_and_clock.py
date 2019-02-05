@@ -11,12 +11,8 @@ moni = monitors.Monitor('testMonitor', width=8.2, distance=60)  # cm,
 
 # set screen (make 'fullscr = True' for fullscreen)
 mywin = visual.Window(size=(800, 600), screen=0, winType='pyglet',
-                      allowGUI=True,
-                      fullscr=False,
-                      monitor=moni,
-                      color='grey',
-                      colorSpace='rgb',
-                      units='cm')
+                      allowGUI=True, fullscr=False, monitor=moni,
+                      color='grey', colorSpace='rgb', units='cm')
 
 # %%
 """ Stimulus """
@@ -70,10 +66,12 @@ while trig < total_time:
 
     while trig < np.sum(block_dur[0:i + 1]):
 
-        if block_ide[i] == 2 and clock.getTime() % 0.05 < 0.025:
+        t = clock.getTime() % 0.2  # seconds
+
+        if block_ide[i] == 2 and t < 0.1:
             stim.color = 'white'
 
-        elif block_ide[i] == 2 and clock.getTime() % 0.05 >= 0.025:
+        elif block_ide[i] == 2 and t >= 0.1:
             stim.color = 'black'
 
         # condition
@@ -90,10 +88,10 @@ while trig < total_time:
             if keys[0]in ['5']:  # <-----
                 trig = trig + 1  # <-----
 
-            if keys[0]in ['escape', 'q']:
+            if keys[0] in ['escape', 'q']:
                 mywin.close()
                 core.quit()
-    i = i + 1
+    i += 1
     print('Block counter: {}'.format(i))
 
 mywin.close()
