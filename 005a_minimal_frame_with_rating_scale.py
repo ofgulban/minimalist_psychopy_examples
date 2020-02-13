@@ -2,25 +2,25 @@
 
 from psychopy import visual, monitors, core, event
 
-# %%
-""" Monitor """
+# =============================================================================
+# MONITOR
 
-# set monitor information used in the experimental setup
+# Set monitor information used in the experimental setup
 moni = monitors.Monitor('testMonitor', width=8.2, distance=60)  # in cm
 
-# set screen (make 'fullscr = True' for fullscreen)
+# Set screen (make 'fullscr = True' for fullscreen)
 mywin = visual.Window(size=(800, 600), screen=0, winType='pyglet',
                       allowGUI=True, fullscr=False, monitor=moni,
                       color='grey', colorSpace='rgb', units='cm')
 
-# %%
-""" Stimulus """
+# =============================================================================
+# STIMULUS
 
 stim = visual.GratingStim(win=mywin, tex=None, units='deg',
                           size=(2, 2), pos=(0, 0), color='green')
 
-# %%
-""" Response Stimulus """
+# =============================================================================
+# RESPONSE STIMULUS
 
 scale = visual.RatingScale(win=mywin, pos=(0, 0), low=1, high=100, precision=1,
                            markerStart=50, marker='triangle',
@@ -29,21 +29,21 @@ scale = visual.RatingScale(win=mywin, pos=(0, 0), low=1, high=100, precision=1,
                            leftKeys='1', rightKeys='2',
                            acceptKeys=['4', 'return'])
 
-# %%
-""" Time """
+# =============================================================================
+# TIME
 
 total_time = 20  # seconds
 stim_time = 2  # seconds
 
-# give the system time to settle
+# Give the system time to settle
 core.wait(0.5)
 
-# create a clock
+# Create a clock
 clock = core.Clock()
 clock.reset()
 
-# %%
-""" Render Loop """
+# =============================================================================
+# RENDER LOOP
 
 accum_time = 0
 
@@ -53,7 +53,7 @@ while clock.getTime() < total_time:
         stim.draw()
         mywin.flip()
 
-        # handle key presses each frame during stimulus
+        # Handle key presses each frame during stimulus
         for keys in event.getKeys(timeStamped=True):
             if keys[0]in ['escape', 'q']:
                 mywin.close()
@@ -63,7 +63,7 @@ while clock.getTime() < total_time:
     while scale.noResponse:
         scale.draw()
         mywin.flip()
-        accum_time = clock.getTime()  # accumulated time
+        accum_time = clock.getTime()  # Accumulated time
 
     print('Final rating: {}'.format(scale.getRating()))
     print('Response time: {}'.format(scale.getRT()))

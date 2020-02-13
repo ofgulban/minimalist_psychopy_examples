@@ -3,19 +3,19 @@
 import numpy as np
 from psychopy import visual, monitors, core, event
 
-# %%
-""" Monitor """
+# =============================================================================
+# MONITOR
 
-# set monitor information used in the experimental setup
+# Set monitor information used in the experimental setup
 moni = monitors.Monitor('testMonitor', width=8.2, distance=60)  # in cm
 
-# set screen (make 'fullscr = True' for fullscreen)
+# Set screen (make 'fullscr = True' for fullscreen)
 mywin = visual.Window(size=(800, 600), screen=0, winType='pyglet',
                       allowGUI=True, fullscr=False, monitor=moni,
                       color='grey', colorSpace='rgb', units='cm')
 
-# %%
-""" Stimulus """
+# =============================================================================
+# STIMULUS
 
 # Squares
 stim = visual.GratingStim(win=mywin, tex=None, units='deg')
@@ -23,35 +23,35 @@ stim = visual.GratingStim(win=mywin, tex=None, units='deg')
 # Text
 text = visual.TextStim(win=mywin, color='black', height=0.4)
 
-# %%
-""" Block Identifiers and Durations """
+# =============================================================================
+# BLOCK IDENTIFIERS AND DURATIONS
 
-# try changing these numbers ans see what happens
+# Try changing these numbers ans see what happens
 block_ide = np.array([1, 2, 3, 2, 3, 1])
 block_dur = np.array([2, 3, 2, 1, 4, 4])
 
-# %%
-""" Time """
+# =============================================================================
+# TIME
 
-# parameters
+# Parameters
 total_time = np.sum(block_dur)
 print('Total Time: {}'.format(total_time))
 
-# give the system time to settle
+# Give the system time to settle
 core.wait(0.5)
 
-# create a clock
+# Create a clock
 clock = core.Clock()
 clock.reset()
 
-# %%
-""" Render Loop """
+# =============================================================================
+# RENDER LOOP
 
 i = 0
 
 while clock.getTime() < total_time:
 
-    # determine block
+    # Determine block
     if block_ide[i] == 1:
         stim.color = 'red'
         stim.size = (1, 1)
@@ -68,18 +68,18 @@ while clock.getTime() < total_time:
 
         stim.draw()
 
-        # set test text
+        # Set test text
         text.text = clock.getTime()
         text.draw()
 
         mywin.flip()
 
-        # handle key presses each frame
+        # Handle key presses each frame
         for keys in event.getKeys(timeStamped=True):
             if keys[0] in ['escape', 'q']:
                 mywin.close()
                 core.quit()
-    i += 1
+    i = i + 1
     print('Block counter: {}'.format(i))
 
 mywin.close()
