@@ -55,7 +55,6 @@ while clock.getTime() < total_time:
 
     stim_1.draw()
 
-    # Set text
     text.text = t
     text.draw()
 

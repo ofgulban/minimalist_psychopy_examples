@@ -69,7 +69,6 @@ while trig < total_time:  # <-----
         # Condition
         stim.draw()
 
-        # Set test text
         text.text = 'Trigger: {}'.format(trig)  # <-----
         text.draw()
 

@@ -41,7 +41,7 @@ clock = core.Clock()
 clock.reset()
 
 # =============================================================================
-# Render Loop
+# RENDER LOOP
 
 while clock.getTime() < total_time:
 
@@ -54,7 +54,6 @@ while clock.getTime() < total_time:
     elif t >= block_time:
         stim_2.draw()
 
-    # Set text
     text.text = t
     text.draw()
 

@@ -74,7 +74,6 @@ while trig < total_time:
         # Condition
         stim.draw()
 
-        # Set test text
         text.text = 'Trigger: {}'.format(trig)
         text.draw()
 
@@ -87,7 +86,7 @@ while trig < total_time:
 
             if keys[0] in ['escape', 'q']:
                 mywin.close()
-                # core.quit()
+
     i = i + 1
     print('Block counter: {}'.format(i))
 
