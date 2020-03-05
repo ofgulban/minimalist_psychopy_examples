@@ -56,13 +56,13 @@ for i, freq in enumerate(sound_freq_vector):
     full_time_vector = np.concatenate([full_time_vector, sound_i])
 
     # Save output
-    out_path = os.path.join(out_dir, "TEST_{}.wav".format(i))
+    out_path = os.path.join(out_dir, "TEST_{}.wav".format(str(i).zfill(2)))
     wavfile.write(out_path, samp_freq, sound_i)
 
 
 # =============================================================================
 def ramp_sound(in_vector, samp_freq, ramp_time):
-    """RampSound.mm implementation."""
+    """RampSound.m implementation."""
     nr_samples = len(in_vector)
     ramp_nr_samples = round(ramp_time * samp_freq / 1000)
     ramp_on = np.linspace(0, 1, ramp_nr_samples)
@@ -84,23 +84,17 @@ def ramp_sound(in_vector, samp_freq, ramp_time):
 # Parameters
 energy = 200
 ramp_time = 10
-# Note: Creating a file per intensity value may be unnecessary in Psychopy
-intensity = [.25, 1]
 
 # Add ramp
 for i in range(0, len(sound_freq_vector)):
-    for j in range(0, len(intensity)):
+    tmp = full_time_vector[i*s:i*s+s]
+    tmp = ramp_sound(tmp, samp_freq, ramp_time)
+    en_s = np.sum(tmp**2, axis=0)
+    tmp = tmp * np.sqrt(energy / en_s)
+    tmp = tmp - tmp.mean()
 
-        tmp_time = full_time_vector[i * s:i * s + s]
-        tmp_time = ramp_sound(tmp_time, samp_freq, ramp_time)
-        en_s = np.sum(tmp_time**2, axis=0)
-        tmp_time = tmp_time * np.sqrt(energy / en_s)
-        tmp_time = tmp_time * intensity[j]
-
-        tmp_time = tmp_time - tmp_time.mean()
-
-        out_name = 'TEST_{}_ramped_intensity{}.wav'.format(i, intensity[j])
-        out_path = os.path.join(out_dir, out_name)
-        wavfile.write(out_path, samp_freq, tmp_time)
+    out_name = 'TEST_{}_ramped.wav'.format(str(i).zfill(2))
+    out_path = os.path.join(out_dir, out_name)
+    wavfile.write(out_path, samp_freq, tmp)
 
 print("Finished.")

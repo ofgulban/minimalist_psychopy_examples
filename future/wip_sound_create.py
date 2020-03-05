@@ -56,7 +56,7 @@ for i, freq in enumerate(sound_freq_vector):
     full_time_vector = np.concatenate([full_time_vector, sound_i])
 
     # Save output
-    out_path = os.path.join(out_dir, "TEST_{}.wav".format(i))
+    out_path = os.path.join(out_dir, "TEST_{}.wav".format(str(i).zfill(2)))
     wavfile.write(out_path, samp_freq, sound_i)
 
 print("Finished.")
