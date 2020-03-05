@@ -2,45 +2,44 @@
 
 from psychopy import visual, monitors, core, event
 
-# %%
-""" Monitor """
+# =============================================================================
+# MONITOR
 
-# set monitor information used in the experimental setup
+# Set monitor information used in the experimental setup
 moni = monitors.Monitor('testMonitor', width=8.2, distance=60)  # cm,
 
-# set screen (make 'fullscr = True' for fullscreen)
+# Set screen (make 'fullscr = True' for fullscreen)
 mywin = visual.Window(size=(800, 600), screen=0, winType='pyglet',
                       allowGUI=True, fullscr=False, monitor=moni,
                       color='grey', colorSpace='rgb', units='cm',
                       blendMode='avg')
 
-# %%
-""" Stimulus """
+# =============================================================================
+# STIMULUS
 
 stim = visual.GratingStim(win=mywin, tex=None, units='deg')
 
-# Text
 text = visual.TextStim(win=mywin, color='black', height=0.4)
 
-# %%
-""" Time """
+# =============================================================================
+# TIME
 
-# parameters
+# Parameters
 total_time = 12  # seconds
 block_time = 2  # seconds
 loop_dur = block_time * 3  # because we have 3 different stimuli
 
-# give the system time to settle
+# Give the system time to settle
 core.wait(0.5)
 
-# create a clock
+# Create a clock
 clock = core.Clock()
 clock.reset()
 
-# %%
-""" Render Loop """
+# =============================================================================
+# RENDER LOOP
 
-i = 0  # used to count how many blocks are completed
+i = 0  # Used to count how many blocks are completed
 
 while clock.getTime() < total_time:
 
@@ -64,19 +63,18 @@ while clock.getTime() < total_time:
 
         stim.draw()
 
-        # set test text
         text.text = t
         text.draw()
 
         mywin.flip()
 
-        # handle key presses each frame
+        # Handle key presses each frame
         for keys in event.getKeys(timeStamped=True):
             if keys[0] in ['escape', 'q']:
                 mywin.close()
                 core.quit()
 
-    i += 1
+    i = i + 1
 
 mywin.close()
 core.quit()
